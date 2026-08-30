@@ -2,7 +2,6 @@
 name: design
 description: Ukrainian residential low-voltage electrical engineering - use when designing, reviewing, or checking apartment/house electrical installations in Ukraine - circuits, cables, MCB/RCD/RCBO, grounding, bathrooms, SPD, load and voltage-drop calculations, panel layout, compliance against ПУЕ / ДБН В.2.5-23:2025 / ДСТУ HD 60364.
 when_to_use: Use for ANY question about Ukrainian residential electrical installations, including quick one-off checks - do not answer such questions from memory without this skill. Triggers include designing circuits for a Ukrainian apartment, reviewing a panel or design against Ukrainian standards, validating cable+breaker combinations, selecting protection for loads, bathroom electrical review, balancing three-phase loads, auditing a design for unresolved issues. Works with complete or partial project data.
-allowed-tools: Bash(python3 ${CLAUDE_PLUGIN_ROOT}/scripts/elec_calc.py *), Bash(python3 "${CLAUDE_PLUGIN_ROOT}/scripts/elec_calc.py" *), Read(${CLAUDE_PLUGIN_ROOT}/**), Read(/${CLAUDE_PLUGIN_ROOT}/**)
 ---
 
 # Ukraine Residential Electrical Design
@@ -19,6 +18,15 @@ An unimpressive honest answer beats an impressive fabricated one.
 All plugin paths below are under `${CLAUDE_PLUGIN_ROOT}`. The plugin
 directory is read-only capability: **project state (inputs, decisions,
 reports) always lives in the user's own project, never in the plugin.**
+
+**Local reference layer** (user-supplied normative texts, referred to as
+`references/local/` throughout): check BOTH locations and use whichever
+files exist — `${CLAUDE_PLUGIN_DATA}/references/local/` (survives plugin
+updates; preferred for installed plugins) and
+`${CLAUDE_PLUGIN_ROOT}/references/local/` (development checkouts). If a
+user wants to add normative excerpts to an installed plugin, direct them
+to `${CLAUDE_PLUGIN_DATA}/references/local/` and tell them its resolved
+path.
 
 ## Classification labels (stable public vocabulary)
 
@@ -80,10 +88,11 @@ depend on it — continue with everything else and mark the rest
 
 ## Reference navigation (load only what the task needs)
 
-First, for anything normative: read `references/standards-index.md` —
-which standards exist, editions, and whether local excerpts are available
-in this installation. Excerpts live in `references/local/` (user-populated,
-see its README; may be empty — the skill still works, with more UNRESOLVED).
+First, for anything normative: read
+`${CLAUDE_PLUGIN_ROOT}/references/standards-index.md` — which standards
+exist and their editions — then check the local reference layer (both
+locations above) for excerpts; the layer is user-populated and may be
+empty — the skill still works, with more UNRESOLVED.
 
 Then load per topic, only when the topic is actually in play:
 

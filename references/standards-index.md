@@ -22,8 +22,8 @@ relying on the edition year.
 | **ДСТУ HD 60364-4-41:2022** | Protection against electric shock | Adopted (HD 60364-4-41:2017 IDT) | none |
 | **ДСТУ HD 60364-4-43:2022** | Protection against overcurrent | Adopted (HD 60364-4-43:2010 IDT) | none |
 | **ДСТУ HD 60364-5-52:2021** | Wiring systems (ampacity, methods) | Adopted (HD 60364-5-52:2011 IDT) | none |
-| **ДСТУ HD 60364-5-53** | Switchgear/protective device selection (incl. SPD section) | *(edition unconfirmed — verify adoption/year)* | none |
-| **ДСТУ HD 60364-5-54** | Earthing arrangements, PE conductors | *(edition unconfirmed — verify adoption/year)* | none |
+| **ДСТУ HD 60364-5-53:2022** | Switchgear/protective device selection (incl. SPD section) | Adopted (наказ № 285 від 28.12.2022, пакетне прийняття) | `local/dstu-hd-60364/` |
+| **ДСТУ HD 60364-5-54:2022** | Earthing arrangements, PE conductors | Adopted (HD 60364-5-54:2011 IDT; наказ № 285 від 28.12.2022; Зміна № 1:2023 ← HD A1:2022/IEC A1:2021) | `local/dstu-hd-60364/` |
 | **ДСТУ HD 60364-6:2022** | Verification | Adopted (HD 60364-6:2016 IDT) | none |
 | **ДСТУ HD 60364-7-701:2022** | Baths/showers — zones, IP, equipment | Adopted (HD 60364-7-701:2007 IDT; IEC 2006 MOD); listed in ДБН В.2.5-23:2025 розділ 2 | none |
 

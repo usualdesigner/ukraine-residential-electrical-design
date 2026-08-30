@@ -4,6 +4,29 @@ All notable changes to this plugin. Format: [Keep a Changelog](https://keepachan
 versioning: [SemVer](https://semver.org/). The authoritative version is
 `.claude-plugin/plugin.json`.
 
+## [1.0.1] — 2026-08-30
+
+### Fixed
+- Automatic (model-initiated) invocation of the `design` skill was broken:
+  a Claude Code bug causes any `allowed-tools` frontmatter to make
+  model-initiated skill invocation return empty content (user `/` invocation
+  is unaffected). Removed `allowed-tools` from `design`; reading plugin
+  reference files may now prompt for permission once per session.
+  `init-project` (user-invoked only) keeps its grants.
+- Local reference layer now survives plugin updates: the `design` skill
+  checks `${CLAUDE_PLUGIN_DATA}/references/local/` (persistent, preferred
+  for marketplace installs) in addition to
+  `${CLAUDE_PLUGIN_ROOT}/references/local/` (dev checkouts);
+  `references/local/README.md` documents both locations.
+
+### Changed
+- Published example output no longer contains verbatim normative quotes;
+  provisions are referenced by clause number with paraphrases (a real
+  report still quotes exact wording from the user's local excerpts).
+- Standards index: confirmed editions ДСТУ HD 60364-5-53:2022 and
+  ДСТУ HD 60364-5-54:2022 (наказ № 285 від 28.12.2022; 5-54 Зміна № 1:2023),
+  removing the *(unconfirmed)* markers.
+
 ## [1.0.0] — 2026-08-30
 
 First public release.

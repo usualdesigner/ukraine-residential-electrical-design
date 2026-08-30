@@ -1,7 +1,19 @@
 # Local reference layer (not redistributed)
 
 Everything in `references/local/` **except this README** is excluded from
-git (see `.gitignore`) and is never published with the plugin. Ukrainian
+git (see `.gitignore`) and is never published with the plugin.
+
+**Where to put files — depends on how the plugin is installed:**
+
+- *Installed via marketplace*: use the plugin's persistent data directory
+  — `${CLAUDE_PLUGIN_DATA}/references/local/` — because the plugin
+  installation directory is **replaced on every plugin update**, wiping
+  anything you add here. Ask Claude (with the design skill active) to tell
+  you the resolved `${CLAUDE_PLUGIN_DATA}` path and create the directory.
+- *Development checkout* (`claude --plugin-dir`): this directory,
+  `references/local/`, works and survives, since you manage the checkout.
+
+The skill checks both locations. Ukrainian
 ДСТУ standards, ПУЕ, ДБН texts, and manufacturer documentation are subject
 to copyright / controlled distribution — the plugin ships an index of what
 exists (`../standards-index.md`) but not the texts themselves.

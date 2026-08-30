@@ -26,9 +26,9 @@ Note on scope: this license covers the plugin's own content (skills, rules,
 templates, scripts, indexes, examples). It does not cover Ukrainian
 normative documents (ДСТУ, ДБН, ПУЕ) or manufacturer documentation, which
 are not distributed with this repository; users supply those to the
-untracked references/local/ layer under the documents' own terms. Brief
-attributed quotations of normative wording in example files are used for
-illustration of the citation format.
+untracked references/local/ layer under the documents' own terms.
+Normative provisions are referred to in this repository by document,
+clause number, and paraphrase only.
 
 The engineering content is provided for planning assistance only and does
 not constitute certified design documentation.

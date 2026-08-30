@@ -6,8 +6,11 @@ installation whose `references/local/` layer had been populated with
 must be verified against the official edition before formal use). In an
 installation without that local material, the quoted citations would
 instead read `UNRESOLVED (reference required: ДБН В.2.5-23:2025)`.
-Abridged: three circuits are worked in full; the rest appear in the
-summary table. This is illustrative material, not a reference design.
+Abridged for publication: three circuits are worked in full, the rest
+appear in the summary table, and verbatim normative quotes are replaced by
+clause references with paraphrases (a real report quotes the exact wording
+from the local excerpts). This is illustrative material, not a reference
+design.
 
 ## 1. Missing information register
 
@@ -29,9 +32,11 @@ Design continues below; every decision touched by M1–M7 carries UNRESOLVED.
 - Design load per norm: apartment in a building with electric stoves up to
   8,5 кВт → питоме розрахункове навантаження **10,00 кВт** for 1 dwelling.
   - Standard: ДБН В.2.5-23:2025 / Clause: таблиця 6.1, рядок 1.3, колонка «1»;
-    примітка 2 («Для вибору приладів обліку та апаратів захисту на вводі
-    житла (квартири) приймають питоме розрахункове навантаження одного житла»)
+    примітка 2 (metering and input protection of a single dwelling are
+    selected from the one-dwelling specific design load)
   - Source: `references/local/dbn-v2.5-23-2025/04-06-supply-and-loads.md`
+    *(in the real report the exact wording is quoted from the local
+    excerpt; quotes are omitted in this published example)*
   - Status: VERIFIED NORMATIVE REQUIREMENT
 - **CONFLICT SURFACED**: 8 kW allocation < 10 kW normative design load.
   Options (user decision): renegotiate allocated power; load-management
@@ -53,15 +58,13 @@ Design continues below; every decision touched by M1–M7 carries UNRESOLVED.
 ```
 Load:            hob-induction 7000 W (installed); Ib = 30.43 A [elec_calc.py current]
 Cable:           Cu, 3x6 mm2 (phase/N/PE)
-                 - «Лінії для живлення однофазних електроплит повинні виконуватися
-                   мідними провідниками перерізом не менше ніж 6 мм².»
+                 - Single-phase electric-stove line: copper, minimum 6 mm2 —
                    ДБН В.2.5-23:2025, п. 7.23 — VERIFIED NORMATIVE REQUIREMENT
-                 - Dedicated line: «...має бути передбачено окрему групову лінію»
-                   п. 7.23 — VERIFIED NORMATIVE REQUIREMENT
+                 - Dedicated group line for the stove required — п. 7.23 —
+                   VERIFIED NORMATIVE REQUIREMENT
                  Length: UNRESOLVED (M3). Illustrative: at 12 m, drop = 2.13 V =
-                 0.93 % ≤ 5 % limit («втрати напруги... не повинні перевищувати
-                 3 % для освітлювальних приладів та 5 % для інших електроприймачів»,
-                 п. 5.11 — VERIFIED) [elec_calc.py vdrop]
+                 0.93 % ≤ 5 % limit (voltage-drop caps: 3 % lighting / 5 % other
+                 loads, п. 5.11 — VERIFIED) [elec_calc.py vdrop]
                  Installation method: UNRESOLVED (M4) → Iz unknown → Ib ≤ In ≤ Iz
                  check UNRESOLVED
 Protection:      C32 1P+N; Ib 30.43 ≤ In 32 ✓; In ≤ Iz UNRESOLVED (M4)
@@ -82,13 +85,9 @@ Load:            washing-machine 2200 W; Ib = 9.57 A
 Cable:           Cu 3x2.5 mm2 (≥ 1,5 мм² min for group lines, таблиця 8.1 —
                  VERIFIED; 2.5 chosen for margin — ENGINEERING RECOMMENDATION)
 Protection:      C16 1P+N; Ib 9.57 ≤ 16 ✓; Iz UNRESOLVED (M4)
-Residual:        ПЗВ ≤ 30 mA MANDATORY + ПВДП (AFDD) MANDATORY:
-                 «...на лінії живлення розеток у ванній кімнаті необхідно
-                 додатково встановлювати ПЗВ з номінальним вимикальним
-                 диференціальним струмом спрацьовування до 30 мА, а також ПВДП...
-                 Рекомендується застосовувати комбіновані комплексні пристрої
-                 захисту з функціями ПЗВ та ПВДП.» — п. 7.25,
-                 VERIFIED NORMATIVE REQUIREMENT
+Residual:        ПЗВ ≤ 30 mA MANDATORY + ПВДП (AFDD) MANDATORY on bathroom
+                 socket lines; combined ПЗВ+ПВДП devices recommended —
+                 п. 7.25, VERIFIED NORMATIVE REQUIREMENT
                  Type A — ENGINEERING RECOMMENDATION (inverter motor drive)
 Zones/IP:        Equipment placement per ДСТУ HD 60364-7-701 (п. 7.67 requires it —
                  VERIFIED); zone dimensions/IP text NOT in local references →
@@ -101,19 +100,17 @@ Status:          Residual protection VERIFIED; zoning UNRESOLVED
 ```
 Load:            general-sockets 2000 W, k=0.5 (ASSUMPTION A2); Ib ≈ 8.7 A
 Sockets count:   living 22 m2 → ≥6; bedroom 16 m2 → ≥4; hallway 8 m2 → ≥1
-                 «не менше ніж одну штепсельну розетку на струм до 10А на кожні
-                 повні і неповні 4 м² площі кімнати, в коридорах квартир – ...на
-                 кожні повні і неповні 10 м²» — п. 7.66, VERIFIED
+                 (≥1 socket per full/partial 4 m² of living-room area;
+                 per 10 m² in apartment corridors — п. 7.66, VERIFIED)
 Cable:           Cu 3x2.5 mm2 (min 1,5 мм², таблиця 8.1 — VERIFIED; 2.5 for
                  socket circuits — COMMON INDUSTRY PRACTICE)
 Protection:      C16 1P+N; Iz UNRESOLVED (M4)
-Residual:        ПЗВ ≤ 30 mA MANDATORY: «...для захисту групових ліній, що живлять
-                 штепсельні розетки, повинні передбачатися ПЗВ... з номінальним
-                 відключним диференціальним струмом спрацьовування не більше ніж
-                 30 мА» — п. 7.24, VERIFIED NORMATIVE REQUIREMENT
-AFDD:            Recommended (not mandated) for this circuit — таблиця 7.1 lists
-                 «багатоквартирні житлові будинки (нові)» under «Рекомендована
-                 установка ПВДП» — VERIFIED; see conflict C1 below.
+Residual:        ПЗВ ≤ 30 mA MANDATORY on group lines feeding socket
+                 outlets — п. 7.24, VERIFIED NORMATIVE REQUIREMENT
+AFDD:            Recommended (not mandated) for this circuit — таблиця 7.1
+                 places new multi-apartment residential buildings in the
+                 "recommended" (not "mandatory") ПВДП column — VERIFIED;
+                 see conflict C1 below.
 Status:          RCD VERIFIED; ampacity/vdrop UNRESOLVED (M3, M4)
 ```
 
@@ -134,10 +131,11 @@ Status:          RCD VERIFIED; ampacity/vdrop UNRESOLVED (M3, M4)
 
 ## 5. Conflict register
 
-**C1 — AFDD scope for bathroom lighting.** Додаток Д п. Д.3.6 (обов'язковий):
-ПВДП «необхідно застосовувати... у групових мережах, що живлять
-електроустановчі вироби (розетки) та системи освітлення ванних та душових
-приміщень». Two readings: (a) all socket circuits + bathroom lighting;
+**C1 — AFDD scope for bathroom lighting.** Додаток Д п. Д.3.6
+(обов'язковий) mandates ПВДП in group networks feeding socket outlets and
+lighting systems of bath/shower rooms — but its Ukrainian syntax (see the
+exact wording in the local excerpt) supports two readings:
+(a) all socket circuits + bathroom lighting;
 (b) sockets and lighting of bathrooms/showers only. Таблиця 7.1 lists new
 multi-apartment buildings under *recommended* AFDD, and п. 7.25 mandates
 ПВДП for bathroom *socket* lines. Reading (b) is consistent with both;
