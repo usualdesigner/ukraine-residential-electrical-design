@@ -32,11 +32,13 @@ claude plugin validate . --strict
    MAJOR = breaking public API, MINOR = new capability/rules/references,
    PATCH = fixes and wording).
 2. Add a section to `CHANGELOG.md`.
-3. Commit, tag, push:
+3. Commit, tag, push, and publish a GitHub Release:
 
    ```bash
    git commit -am "release: vX.Y.Z"
    git tag vX.Y.Z && git push && git push --tags
+   gh release create vX.Y.Z --verify-tag --latest \
+     --title "vX.Y.Z — <short summary>" --notes "<CHANGELOG section>"
    ```
 
 4. Users receive the update via `/plugin marketplace update` (or the
