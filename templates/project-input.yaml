@@ -1,0 +1,57 @@
+# Residential electrical project — input template (goes in YOUR project,
+# not in the plugin). Fill what you know; delete nothing. Empty/absent
+# value = UNKNOWN, and every decision depending on it will be marked
+# UNRESOLVED, not guessed.
+# Only `property` and at least one of rooms/loads are needed to start.
+
+property:
+  country: Ukraine
+  property_type: apartment          # apartment | house | house-unit
+  area_m2:                          # heated/total floor area
+  new_construction:                 # true = new build/renovation to ДБН В.2.5-23:2025
+
+supply:
+  phases:                           # 1 | 3 — never inferred
+  voltage:                          # e.g. 230/400 V
+  allocated_power_kw:               # per contract with the utility/ОСББ
+  incoming_breaker:                 # rating + poles of the pre-meter breaker, if known
+  incoming_cable:                   # material/section of riser feed, if known
+  grounding_system:                 # TN-S | TN-C-S | TN-C | unknown — NEVER inferred
+  pen_separation_point:             # where PEN splits to PE+N, if TN-C-S
+  building_spd:                     # is there a building-level SPD? true/false/unknown
+  building_supply_information: ""   # free text: meter location, riser, upstream protection
+
+rooms: []
+  # - name: kitchen
+  #   area_m2: 12
+  #   wet_zone: false               # true for bathroom/shower/laundry
+  #   sockets_planned:              # count, if already decided
+  #   lighting_points:
+
+loads: []
+  # - name: oven
+  #   room: kitchen
+  #   rated_power_w: 3500
+  #   voltage: 230                  # 230 | 400
+  #   phases: 1                     # 1 | 3 | "1-or-3" (per manufacturer)
+  #   connection: fixed             # fixed | socket
+  #   simultaneity: 1.0             # expected fraction of time used with others; 1.0 unless justified
+  #   dedicated_circuit: unknown    # true | false | unknown
+  #   manufacturer_requirements: "" # ONLY from actual documentation; never assumed
+  #   phase: ""                     # fix to L1/L2/L3 only if constrained
+  #   future: false                 # planned future load (EV charger etc.)
+
+circuits: []                        # leave empty for a new design; fill to review an existing one
+  # - name: kitchen worktop sockets
+  #   loads: [kettle, microwave]
+  #   cable:                        # e.g. ВВГнг-LS 3x2.5
+  #   length_m:                     # one-way route length — never assumed
+  #   installation_method:          # e.g. in conduit in wall, in floor screed — never assumed
+  #   breaker:                      # e.g. C16
+  #   rcd:                          # e.g. RCBO 30mA type A
+
+panel:
+  location: ""                      # in-apartment / floor board
+  preferred_manufacturer:           # optional; keeps manufacturer data separate from norms
+  available_modules:                # enclosure size if already bought
+  reserve_percentage: 20

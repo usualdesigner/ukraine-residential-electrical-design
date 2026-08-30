@@ -1,0 +1,31 @@
+{
+  "name": "ukraine-electrical",
+  "description": "Marketplace for the ukraine-electrical plugin: Ukrainian residential low-voltage electrical engineering for Claude Code.",
+  "owner": {
+    "name": "Alex Bern",
+    "email": "usualdesigner@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "ukraine-electrical",
+      "source": "./",
+      "description": "Ukrainian residential low-voltage electrical engineering: circuit design, cable and protective-device selection, RCD/RCBO, grounding, wet zones, load and voltage-drop calculations, and compliance review against ПУЕ / ДБН В.2.5-23:2025 / ДСТУ HD 60364 — with strict normative-citation integrity.",
+      "license": "MIT",
+      "repository": "https://github.com/usualdesigner/ukraine-residential-electrical-design",
+      "category": "engineering",
+      "keywords": [
+        "ukraine",
+        "electrical",
+        "residential",
+        "PUE",
+        "DBN",
+        "DSTU",
+        "IEC 60364",
+        "distribution board",
+        "RCD",
+        "RCBO",
+        "circuit design"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+# EXAMPLE — deliberately minimal input: only a load list, no supply data,
+# no rooms/areas. Tests incremental reasoning: the skill must still help
+# (circuit grouping, protection reasoning, calculations) while explicitly
+# marking everything supply-dependent as UNRESOLVED, and must NOT invent
+# phases, allocated power, grounding system, or cable data.
+
+property:
+  country: Ukraine
+  property_type: apartment
+
+supply: {}          # everything unknown
+
+loads:
+  - { name: EXAMPLE-boiler,          rated_power_w: 2000, voltage: 230, connection: fixed }
+  - { name: EXAMPLE-washing-machine, rated_power_w: 2200, voltage: 230, connection: socket }
+  - { name: EXAMPLE-kitchen-sockets, rated_power_w: 2000, voltage: 230, connection: socket }

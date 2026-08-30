@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+
+# Local reference layer: user-supplied normative texts and manufacturer
+# docs are never redistributed (see references/local/README.md).
+references/local/*
+!references/local/README.md

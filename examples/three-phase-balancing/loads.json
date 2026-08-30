@@ -1,0 +1,11 @@
+[
+  {"name": "EXAMPLE hob 3-phase (as thirds)", "power_w": 2400, "phase": "L1"},
+  {"name": "EXAMPLE hob 3-phase (as thirds) b", "power_w": 2400, "phase": "L2"},
+  {"name": "EXAMPLE hob 3-phase (as thirds) c", "power_w": 2400, "phase": "L3"},
+  {"name": "EXAMPLE boiler", "power_w": 2000},
+  {"name": "EXAMPLE washer", "power_w": 2200},
+  {"name": "EXAMPLE ac-1", "power_w": 900},
+  {"name": "EXAMPLE ac-2", "power_w": 900},
+  {"name": "EXAMPLE sockets-general", "power_w": 1500},
+  {"name": "EXAMPLE lighting", "power_w": 400}
+]

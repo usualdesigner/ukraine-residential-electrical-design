@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Calculator unit tests
+        run: python3 scripts/test_elec_calc.py
+      - name: Guard - no normative texts committed
+        run: |
+          # references/local must contain only its README in git
+          tracked=$(git ls-files references/local/)
+          if [ "$tracked" != "references/local/README.md" ]; then
+            echo "Unexpected tracked files under references/local:"; echo "$tracked"; exit 1
+          fi
+
+  plugin-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Validate plugin (strict)
+        run: claude plugin validate . --strict

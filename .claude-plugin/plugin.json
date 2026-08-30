@@ -1,0 +1,10 @@
+{
+  "name": "ukraine-electrical",
+  "displayName": "Ukraine Residential Electrical",
+  "description": "Ukrainian residential low-voltage electrical engineering: circuit design, cable and protective-device selection, RCD/RCBO, grounding, wet zones, load and voltage-drop calculations, and compliance review against ПУЕ / ДБН В.2.5-23:2025 / ДСТУ HD 60364 — with strict normative-citation integrity.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Alex Bern",
+    "email": "usualdesigner@gmail.com"
+  }
+}

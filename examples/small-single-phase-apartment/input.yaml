@@ -1,0 +1,50 @@
+# EXAMPLE fixture: a fictitious 2-room apartment, new renovation.
+# Deliberately incomplete (grounding system unknown, no building SPD data)
+# to show UNRESOLVED handling. Not a template of a recommended apartment —
+# carries no defaults for real projects.
+
+property:
+  country: Ukraine
+  property_type: apartment
+  area_m2: 68
+  new_construction: true
+
+supply:
+  phases: 1
+  voltage: 230
+  allocated_power_kw: 8
+  incoming_breaker: "C40 2P (per floor board label, unverified)"
+  incoming_cable:
+  grounding_system: unknown
+  pen_separation_point:
+  building_spd: unknown
+  building_supply_information: "2010s monolith building, meter at floor board"
+
+rooms:
+  - { name: hallway,   area_m2: 8 }
+  - { name: kitchen,   area_m2: 14 }
+  - { name: living,    area_m2: 22 }
+  - { name: bedroom,   area_m2: 16 }
+  - { name: bathroom,  area_m2: 6, wet_zone: true }
+
+loads:
+  - { name: oven,            room: kitchen,  rated_power_w: 3500, voltage: 230, connection: fixed,  dedicated_circuit: unknown }
+  - { name: hob-induction,   room: kitchen,  rated_power_w: 7000, voltage: 230, connection: fixed,  dedicated_circuit: unknown,
+      manufacturer_requirements: "unknown - manual not provided" }
+  - { name: dishwasher,      room: kitchen,  rated_power_w: 2000, voltage: 230, connection: socket }
+  - { name: fridge,          room: kitchen,  rated_power_w: 300,  voltage: 230, connection: socket }
+  - { name: washing-machine, room: bathroom, rated_power_w: 2200, voltage: 230, connection: socket }
+  - { name: towel-warmer,    room: bathroom, rated_power_w: 600,  voltage: 230, connection: fixed }
+  - { name: boiler-50l,      room: bathroom, rated_power_w: 2000, voltage: 230, connection: fixed }
+  - { name: ac-living,       room: living,   rated_power_w: 900,  voltage: 230, connection: fixed }
+  - { name: ac-bedroom,      room: bedroom,  rated_power_w: 700,  voltage: 230, connection: fixed }
+  - { name: general-sockets, room: all,      rated_power_w: 2000, voltage: 230, connection: socket, simultaneity: 0.5 }
+  - { name: lighting,        room: all,      rated_power_w: 500,  voltage: 230, connection: fixed }
+
+circuits: []   # new design requested
+
+panel:
+  location: in-apartment, hallway
+  preferred_manufacturer:
+  available_modules:
+  reserve_percentage: 20
